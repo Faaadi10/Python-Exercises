@@ -1,24 +1,29 @@
-#hard-level (mixing up the order of letters, symbols and numbers)
+import random
 
+# generating a number between 1 and 20
+number = random.randint(1,20)
 
-password_list = []
+# Setting conditions
+attempts = 0
+max_attempts = 5
 
-for char in range(1, number_letters + 1):
-    password_list.append(random.choice(letters))
+print("Guess the number game")
+print("Guess the number I've generated. You've got 5 attempts.\n")
 
-for char in range(1, number_symbols + 1):
-    password_list.append(random.choice(symbols))
+# Checking if correct or not
+while (attempts < max_attempts):
+    guess = int(input("guess the number I've generated\n"))
+    if (guess == number):
+        print("Congrats, you won.")
+        break
+    elif (guess > number):
+        print("Lower than that. Try Again !")
+    elif (guess < number):
+        print("Higher than that. Try again!")
+    elif (number > 20):
+        print("Choose between 1 to 20")
 
-for char in range(1, number_numbers + 1):
-    password_list.append(random.choice(numbers))
+    attempts = attempts + 1
 
-random.shuffle(password_list)
-print(password_list)
-
-#to convert list into string
-
-password = ""
-for char in password_list:
-     password += char
-
-print(f"your password is : {password}")
+if (attempts == max_attempts):
+    print("You've finished your attempts")
