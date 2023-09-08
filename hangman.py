@@ -1,4 +1,17 @@
-# Randomly chose a word between a list of words.
+# Introduction
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
+
+print(logo)
+
+
 # Randomly chose a word between a list of words.
 import random
 last_names = ["Messi", "Ronaldo", "Mbappe", "Salah", "Hazard", "Lewandowski", "Modric", "Bale", "Suarez", "Kroos"]
@@ -82,14 +95,12 @@ while not end_of_game:
     guess = input("Guess a letter : ").lower()
 
 
-
-
-    # To check if the guess is in the word
-    for letter in chosen_word:
-        if letter == guess:
-            print("Right")
-        else:
-            print("Wrong")
+    # # To check if the guess is in the word
+    # for letter in chosen_word:
+    #     if letter == guess:
+    #         print("Right")
+    #     else:
+    #         print("Wrong")
 
 
     # Replacing the blanks with correct guess letter
@@ -101,6 +112,7 @@ while not end_of_game:
 
     if guess not in chosen_word:
         lives = lives - 1
+        print(f"You guessed {guess}, that's not in the word, you lose a life")
         if lives == 0:
             end_of_game = True
             print("You Lost")
